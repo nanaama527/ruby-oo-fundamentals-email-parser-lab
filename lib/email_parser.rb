@@ -4,12 +4,18 @@
 # or whitespace (' ').
 
 class EmailAddressParser
-    attr_reader :emails
-    def initialize(emails)
-        @emails = emails 
+    attr_reader :email
+    def initialize(email)
+        @email = email 
     end
 
     def parse
+        @email.gsub(/[\s,]/ ," ").strip.split(" ").each do |email|
+            @temp_array = []
+            if @temp_array.include?(email)
+                @temp_array << email
+            end
+        end
     end
 end
 
