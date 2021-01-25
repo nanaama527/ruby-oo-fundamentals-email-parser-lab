@@ -10,12 +10,13 @@ class EmailAddressParser
     end
 
     def parse
+        @temp_array = []
         @email.gsub(/[\s,]/ ," ").strip.split(" ").each do |email|
-            @temp_array = []
-            if @temp_array.include?(email)
-                @temp_array << email
+            if !@temp_array.include?(email)
+              @temp_array << email
             end
         end
+        @temp_array
     end
 end
 
